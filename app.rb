@@ -5,5 +5,6 @@ require "./models.rb"
 set :database, "sqlite3:notemakerdb.sqlite3"
 
 get '/' do
-	"Hello World"
+	@posts = Note.all
+	erb :index
 end
