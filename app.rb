@@ -27,6 +27,7 @@ put '/note/:id' do
 end 
 
 delete '/note/:id' do
+	puts "DELETING"
 	@note = Note.find(params[:id])
 	@note.destroy
 	redirect '/'

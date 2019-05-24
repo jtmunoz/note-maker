@@ -2,7 +2,12 @@
 <p>Created: <%= @note.created_at.strftime("%B, %d, %Y") %></p>
 <p><%= @note.body %></p>
 
-<a href="/note/<%= @note.id %>" name="_method" value="delete">Delete Note</a>
+<!-- <a href="/note/<%# @note.id %>" name="_method" value="delete">Delete Note</a> -->
+<form action="/note/<%= @note.id %>" method="post">
+  <input type="hidden" name="_method" value="DELETE">
+  <input type="submit" value="Delete Note?">
+</form>
+<!-- <a href="/post/<%# @post.id %>" name="_method" value="delete">Delete Post</a> -->
 
 <h2>Edit Note</h2>
 <form method="post" action="/note/<%= @note.id %>"> 
