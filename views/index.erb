@@ -3,13 +3,13 @@
 <ul>
 	<% @notes.each do |note| %>
 	<li>
-		<a href="/note/<%= note.id %>"><%= note.title %></a> | <%= note.created_at %>
+		<a href="/note/<%= note.id %>"><%= note.title %></a> | <%= note.pretty_time %>
 	</li>
 	<% end %>
 </ul>
 
 <h2>Add Note</h2>
-<form method="note" action="/note">
+<form method="post" action="/note">
 	<label for="title">Title: </label>
 	<input type="text" name="title">
 	<label for="body">Body: </label>
