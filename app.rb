@@ -8,3 +8,8 @@ get '/' do
 	@notes = Note.all
 	erb :index
 end
+
+get "/post/:id" do
+	@note = Note.find(params[:id])
+	erb :note_page
+end
