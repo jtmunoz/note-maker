@@ -5,14 +5,14 @@
 <!-- <a href="/note/<%# @note.id %>" name="_method" value="delete">Delete Note</a> -->
 <form action="/note/<%= @note.id %>" method="post">
   <input type="hidden" name="_method" value="DELETE">
-  <input type="submit" value="Delete Note?">
+  <input class="uk-button uk-button-danger" type="submit" value="Delete Note?">
 </form>
 <!-- <a href="/post/<%# @post.id %>" name="_method" value="delete">Delete Post</a> -->
 
 <h2>Edit Note</h2>
 <form method="post" action="/note/<%= @note.id %>"> 
-    <input type="hidden" name="_method" value="put">
-    <input type="text" name="title" value="<%= @note.title %>">
-    <input type="text" name="body" value="<%= @note.body %>">
-    <button type="submit">Update Note</button>
+    <input class="uk-input" type="hidden" name="_method" value="put">
+    <input class="uk-input" type="text" name="title" value="<%= @note.title %>">
+    <input class="uk-input" type="text" name="body" value="<%= @note.body %>">
+    <button class="uk-button uk-button-primary" type="submit">Update Note</button>
 </form>
