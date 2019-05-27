@@ -6,8 +6,8 @@
 <form method="post" action="/note/<%= @note.id %>"> 
     <input class="uk-input" type="hidden" name="_method" value="put">
     <input class="uk-input" type="text" name="title" value="<%= @note.title %>">
-    <input class="uk-input" type="text" name="body" value="<%= @note.body %>">
-    <button class="uk-button uk-button-primary" type="submit">Update Note</button>
+    <input class="uk-input uk-margin-small-top" type="text" name="body" value="<%= @note.body %>">
+    <button class="uk-button uk-button-primary uk-margin-top" type="submit">Update Note</button>
 </form>
 
 <h2>Delete Note</h2>
