@@ -1,13 +1,13 @@
-<hr>
+
 <h2>All Notes</h2>
-<ul>
+<ul class="uk-list uk-list-striped">
 	<% @notes.each do |note| %>
 	<li>
 		<a href="/note/<%= note.id %>"><%= note.title %></a> | <%= note.pretty_time %>
 	</li>
 	<% end %>
 </ul>
-<hr>
+
 
 <h2>Add Note</h2>
 <form method="post" action="/note">
