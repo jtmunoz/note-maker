@@ -1,22 +1,29 @@
-<h2 class="uk-text-primary"><%= @note.title %></h2>
 
 <div uk-grid="">
 	<div class="uk-width-3-5@m">
-		<p>Created: <%= @note.created_at.strftime("%B, %d, %Y") %></p>
-		<p><%= @note.body %></p>
+		<div class="uk-padding-small">
+			<h2 class="uk-text-primary"><%= @note.title %></h2>
+			<p><%= @note.body %></p>
+			<p class="uk-text-small uk-text-bold uk-margin-small-top">Created: <%= @note.created_at.strftime("%B, %d, %Y") %></p>
+			
+		</div>
 	</div>
 	<div class="uk-width-2-5@m">
-		<h2>Edit Note</h2>
-		<form method="post" action="/note/<%= @note.id %>"> 
-		    <input class="uk-input" type="hidden" name="_method" value="put">
-		    <input class="uk-input" type="text" name="title" value="<%= @note.title %>">
-		    <input class="uk-input uk-margin-small-top" type="text" name="body" value="<%= @note.body %>">
-		    <button class="uk-button uk-button-primary uk-margin-top" type="submit">Update Note</button>
-		</form>
-		<h2 class="uk-margin-remove-bottom">Delete Note</h2>
-		<form class="uk-margin-small-top" action="/note/<%= @note.id %>" method="post">
-		  <input type="hidden" name="_method" value="DELETE">
-		  <input class="uk-button uk-button-danger" type="submit" value="Delete Note?">
-		</form>
+		<div class="uk-padding-small">
+			<h2>Edit Note</h2>
+			<form method="post" action="/note/<%= @note.id %>"> 
+			    <input class="uk-input" type="hidden" name="_method" value="put">
+			    <label for="title" class="uk-text-small uk-text-bold">Edit Title: </label>
+			    <input class="uk-input uk-margin-small-bottom" type="text" name="title" value="<%= @note.title %>">
+			    <label for="body" class="uk-text-small uk-text-bold">Edit Body: </label>
+			    <input class="uk-input" type="text" name="body" value="<%= @note.body %>">
+			    <button class="uk-button uk-button-primary uk-margin-top" type="submit">Update Note</button>
+			</form>
+			<h2 class="uk-margin-remove-bottom">Delete Note</h2>
+			<form class="uk-margin-small-top" action="/note/<%= @note.id %>" method="post">
+			  <input type="hidden" name="_method" value="DELETE">
+			  <input class="uk-button uk-button-danger" type="submit" value="Delete Note?">
+			</form>
+		</div>
 	</div>	
 </div>
