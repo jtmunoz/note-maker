@@ -15,17 +15,8 @@ get "/note/:id" do
 end
 
 post '/note' do
-	note = Note.create!(title: params[:title], body: params[:body])
-	=begin 
-	note = Note.new(params["note"])
-	if note.save
-		redirect "/notes/#{note.id}"
-	else
-		# erb :"blogs/new"
-		redirect '/'
-	end
-	=end
-	
+	@note = Note.create(title: params[:title], body: params[:body])
+	redirect '/'
 end
 
 put '/note/:id' do
