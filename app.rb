@@ -2,7 +2,27 @@ require "sinatra"
 require "sinatra/activerecord"
 require "./models.rb"
 
-set :database, "sqlite3:notemakerdb.sqlite3"
+# set :database, "sqlite3:notemakerdb.sqlite3"
+configure :development do
+  	set :database, {adapter: 'postgresql',
+		encoding: 'unicode',
+		database: 'note-maker-dbs',
+		pool: 2, 
+		username: 'jtmunoz',
+		password: 'passowrd'
+	}
+end
+
+configure :production do
+  set :database, {adapter: 'postgresql',
+		encoding: 'unicode',
+		database: 'note-maker-dbs',
+		pool: 2, 
+		username: 'jtmunoz',
+		password: 'passowrd'
+	}
+end
+
 
 get '/' do
 	@notes = Note.all
