@@ -1,11 +1,5 @@
-# source "http://rubygems.org"
-
-# gem "sinatra-activerecord"
-# gem "rake"
-# gem "sqlite3", "~>1.4.1"
-# gem "shotgun"
-
 source :rubygems
+
 # PostgreSQL driver
 gem 'pg'
 
