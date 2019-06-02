@@ -70,7 +70,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
+  activerecord (~> 5.0, >= 5.0.0.1)
   activesupport
   faker
   pg

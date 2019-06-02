@@ -25,7 +25,7 @@ namespace :generate do
     puts "Creating #{model_path}"
     File.open(model_path, 'w+') do |f|
       f.write(<<-EOF.strip_heredoc)
-        class #{model_name} < ActiveRecord::Base
+        class #{model_name} < ActiveRecord::Base[5.2]
           # Remember to create a migration!
         end
       EOF
@@ -49,7 +49,7 @@ namespace :generate do
     puts "Creating #{path}"
     File.open(path, 'w+') do |f|
       f.write(<<-EOF.strip_heredoc)
-        class #{name} < ActiveRecord::Migration
+        class #{name} < ActiveRecord::Migration[5.2]
           def change
           end
         end
@@ -100,10 +100,11 @@ namespace :db do
 
   desc "Migrate the database (options: VERSION=x, VERBOSE=false, SCOPE=blog)."
   task :migrate do
-    ActiveRecord::Migrator.migrations_paths << File.dirname(__FILE__) + 'db/migrate'
+    ActiveRecord::Migrator.migrations_paths << File.dirname(__FILE__) + "db/migrate"
     ActiveRecord::Migration.verbose = ENV["VERBOSE"] ? ENV["VERBOSE"] == "true" : true
-    ActiveRecord::Migrator.migrate(ActiveRecord::Migrator.migrations_paths, ENV["VERSION"] ? ENV["VERSION"].to_i : nil) do |migration|
-      ENV["SCOPE"].blank? || (ENV["SCOPE"] == migration.scope)
+    p ActiveRecord::Migrator.migrations_paths
+    ActiveRecord::Migration.migrate(ActiveRecord::Migrator.migrations_paths, ENV['VERSION'] ? ENV['VERSION'].to_i : nil) do |migration|
+      ENV['SCOPE'].blank? || (ENV['SCOPE'] == migration.scope)        
     end
   end
 
