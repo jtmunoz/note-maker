@@ -9,13 +9,14 @@ get "/note/:id" do
 end
 
 post '/note' do
-	@note = Note.create(title: params[:title], body: params[:body])
+	puts params
+	@note = Note.create(title: params['title'], body: params['body'])
 	redirect '/'
 end
 
 put '/note/:id' do
 	@note = Note.find(params[:id])
-	@note.update(title: params[:title], body: params[:body])
+	@note.update(title: params['title'], body: params['body'])
 	@note.save
 	redirect '/note/'+params[:id]
 end 
