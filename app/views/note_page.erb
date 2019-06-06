@@ -14,7 +14,7 @@
 	<div class="uk-width-2-5@m">
 		<div class="uk-padding-small uk-card uk-border-rounded uk-card-hover" style="border: 1px solid black;">
 			<h2>Edit Note</h2>
-			<form method="post" action="/note/<%= @note.id %>"> 
+			<form method="post" action="/notes/<%= @note.id %>"> 
 			    <input class="uk-input" type="hidden" name="_method" value="put">
 			    <label for="title" class="uk-text-small uk-text-bold">Edit Title: </label>
 			    <input class="uk-input uk-margin-small-bottom" type="text" name="note[title]" value="<%= @note.title %>">
@@ -24,7 +24,7 @@
 			</form>
 			<hr>
 			<h2 class="uk-margin-remove-bottom">Delete Note</h2>
-			<form class="uk-margin-small-top" action="/note/<%= @note.id %>" method="post">
+			<form class="uk-margin-small-top" action="/notes/<%= @note.id %>" method="post">
 			  <input type="hidden" name="_method" value="DELETE">
 			  <input class="uk-button uk-button-danger uk-button-small uk-width-1-1@s" type="submit" value="Delete Note?">
 			</form>
