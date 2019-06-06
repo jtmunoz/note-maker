@@ -17,9 +17,9 @@
 			<form method="post" action="/note/<%= @note.id %>"> 
 			    <input class="uk-input" type="hidden" name="_method" value="put">
 			    <label for="title" class="uk-text-small uk-text-bold">Edit Title: </label>
-			    <input class="uk-input uk-margin-small-bottom" type="text" name="params[titl]e" value="<%= @note.title %>">
+			    <input class="uk-input uk-margin-small-bottom" type="text" name="note[title]" value="<%= @note.title %>">
 			    <label for="body" class="uk-text-small uk-text-bold">Edit Body: </label>
-			    <input class="uk-input" type="text" name="params[body]" value="<%= @note.body %>">
+			    <input class="uk-input" type="text" name="note[body]" value="<%= @note.body %>">
 			    <button class="uk-button uk-button-primary uk-margin-top uk-button-small uk-width-1-1@s" type="submit">Update Note</button>
 			</form>
 			<hr>
