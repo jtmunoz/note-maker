@@ -29,4 +29,4 @@ group :test, :development do
   gem 'database_cleaner'
 end
 
-# gem 'puma'
+gem 'puma'

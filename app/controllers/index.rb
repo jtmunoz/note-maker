@@ -1,5 +1,5 @@
 get '/' do
-	@notes = Note.all.order('created_at DESC')
+	@notes = Note.all
 	erb :index
 end
 
