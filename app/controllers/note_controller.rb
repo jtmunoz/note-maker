@@ -10,6 +10,7 @@ end
 
 post '/notes' do
 	@note = Note.create(title: params[:note][:title], body: params[:note][:body])
+	
 	redirect '/'
 end
 
