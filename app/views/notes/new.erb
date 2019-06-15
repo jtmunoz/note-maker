@@ -1,4 +1,12 @@
 <div class="uk-padding-small uk-card uk-card-hover uk-border-rounded" style="border: 1px solid black;">
+	<% if @errors %>
+	<ul>
+	<% @errors.each do |error| %>
+		<li class="uk-text-danger"><%= error %></li>
+	<% end %>
+	</ul>
+	<% end %>
+
 	<h2>Add A New Note</h2>
 	<form method="post" action="/notes">
 		<label for="title">Title: </label>

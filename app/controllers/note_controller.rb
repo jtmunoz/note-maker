@@ -9,9 +9,13 @@ end
 
 
 post '/notes' do
-	@note = Note.create(title: params[:note][:title], body: params[:note][:body])
-	
-	redirect '/'
+	note = Note.create(title: params[:note][:title], body: params[:note][:body])
+	if @note 
+		redirect '/'
+	else
+		@errors = note.errors.full_messages
+		erb :"notes/new"
+	end
 end
 
 put '/notes/:id' do
