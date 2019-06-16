@@ -3,9 +3,9 @@
 	<div class="uk-width-3-5@m">
 		<div class="uk-padding-small uk-card uk-border-rounded" style="border: 1px solid black;">
 			<p class="uk-margin-remove-bottom uk-text-muted uk-text-bold">Title:</p>
-			<h2 class="uk-text-primary uk-margin-small-top"><%= @note.title %></h2>
+			<h2 class="uk-text-primary uk-margin-small-top"><%= h @note.title %></h2>
 			<p class="uk-margin-remove-bottom uk-text-muted uk-text-bold">Body:</p>
-			<p class="uk-margin-small-top"><%= @note.body %></p>
+			<p class="uk-margin-small-top"><%= h @note.body %></p>
 			<p class="uk-text-small uk-text-bold uk-margin-small-top uk-margin-remove-bottom">Updated: <%= @note.updated_at.strftime("%B, %d, %Y") %></p>
 			<p class="uk-text-small uk-text-bold uk-margin-small-top">Created: <%= @note.created_at.strftime("%B, %d, %Y") %></p>
 			
@@ -17,9 +17,9 @@
 			<form method="post" action="/notes/<%= @note.id %>"> 
 			    <input class="uk-input" type="hidden" name="_method" value="put">
 			    <label for="title" class="uk-text-small uk-text-bold">Edit Title: </label>
-			    <input class="uk-input uk-margin-small-bottom" type="text" name="note[title]" value="<%= @note.title %>">
+			    <input class="uk-input uk-margin-small-bottom" type="text" name="note[title]" value="<%= h @note.title %>">
 			    <label for="body" class="uk-text-small uk-text-bold">Edit Body: </label>
-			    <input class="uk-input" type="text" name="note[body]" value="<%= @note.body %>">
+			    <input class="uk-input" type="text" name="note[body]" value="<%= h @note.body %>">
 			    <button class="uk-button uk-button-primary uk-margin-top uk-button-small uk-width-1-1@s" type="submit">Update Note</button>
 			</form>
 			<hr>

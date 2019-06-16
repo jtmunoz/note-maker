@@ -5,7 +5,7 @@
 			<ul class="uk-list uk-list-divider">
 				<% @notes.each do |note| %>
 				<li>
-					<a href="/notes/<%= note.id %>"><%= note.title %></a> | <%= note.pretty_time %>
+					<a href="/notes/<%= note.id %>"><%= h note.title %></a> | <%= note.pretty_time %>
 				</li>
 				<% end %>
 			</ul>			

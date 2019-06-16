@@ -1,20 +1,21 @@
 get "/notes/new" do
-	erb :"notes/new"
+	render_view :"notes/new"
 end
 
 get "/notes/:id" do
 	@note = Note.find(params[:id])
-	erb :note_page
+	render_view :note_page
 end
 
 
 post '/notes' do
-	note = Note.create(title: params[:note][:title], body: params[:note][:body])
+	note_params = params[:note]
+	note = Note.create(note_params)
 	if @note 
 		redirect '/'
 	else
 		@errors = note.errors.full_messages
-		erb :"notes/new"
+		render_view :"notes/new"
 	end
 end
 
