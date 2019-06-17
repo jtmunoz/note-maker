@@ -21,7 +21,8 @@ end
 
 put '/notes/:id' do
 	@note = Note.find(params[:id])
-	@note.update(title: params[:note][:title], body: params[:note][:body])
+	note_params = params[:note]
+	@note.update(note_params)
 	@note.save
 	redirect '/notes/'+params[:id]
 end 
