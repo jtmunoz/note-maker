@@ -9,20 +9,18 @@ end
 
 
 post '/notes' do
-	note_params = params[:note]
-	note = Note.create(note_params)
+	@note = Note.create(params[:note])
 	if @note 
 		redirect '/'
 	else
-		@errors = note.errors.full_messages
+		@errors = @note.errors.full_messages
 		render_view :"notes/new"
 	end
 end
 
 put '/notes/:id' do
 	@note = Note.find(params[:id])
-	note_params = params[:note]
-	@note.update(note_params)
+	@note.update(params[:note])
 	@note.save
 	redirect '/notes/'+params[:id]
 end 
